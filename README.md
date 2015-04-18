@@ -1,1 +1,3 @@
-# Reposit-rio-WikiFarma
+-# Projeto para a Disciplina de POO 2015.1
+-
+-Programa de gerenciamento de uma Farmacia (ERP)
