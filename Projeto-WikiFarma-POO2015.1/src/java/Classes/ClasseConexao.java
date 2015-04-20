@@ -13,17 +13,29 @@ import java.sql.SQLException;
  *
  * @author Marco
  */
-public class ClasseConexao {
-    
+public class ClasseConexao 
+{    
     public static void abrirConexao(String[] args) throws SQLException
     {
+       try{ 
        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb","root","");
-       System.out.println("Conectado");       
+       System.out.println("Conectado");                   
+       } catch (SQLException e){
+           System.out.println(e.getMessage());
+       } catch (Exception e){
+           System.out.println(e.getMessage());
+       }       
     }
 
     public static void fecharConexao(Connection conexao) throws SQLException
     {
+    try{        
     conexao.close();
     System.out.println("Conexão Fechada");       
+       } catch (SQLException e){
+           System.out.println(e.getMessage());
+         } catch (Exception e){
+           System.out.println(e.getMessage());
+         }     
     }    
 }
