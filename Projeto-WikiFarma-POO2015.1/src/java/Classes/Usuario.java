@@ -9,16 +9,16 @@ package Classes;
  *
  * @author Marco
  */
-public class ClasseUsuario {
+public class Usuario {
     
     private String id_usu;
     private String login_usu;
     private String senha_usu;
 
-    public ClasseUsuario() {
+    public Usuario() {
     }    
 
-    public ClasseUsuario(String id_usu, String login_usu, String senha_usu) {
+    public Usuario(String id_usu, String login_usu, String senha_usu) {
         this.id_usu = id_usu;
         this.login_usu = login_usu;
         this.senha_usu = senha_usu;

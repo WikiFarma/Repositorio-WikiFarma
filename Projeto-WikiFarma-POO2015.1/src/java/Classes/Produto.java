@@ -9,7 +9,7 @@ package Classes;
  *
  * @author Marco
  */
-public class ClasseProduto {
+public class Produto {
     
     private int id_pro;
     private String descricao_pro;
@@ -21,10 +21,10 @@ public class ClasseProduto {
     private int qtde_pro;
     private String data_cad_pro;
 
-    public ClasseProduto() {
+    public Produto() {
     }    
     
-    public ClasseProduto(int id_pro, String descricao_pro, int cod_barra_pro, float preco_custo_pro, int tipo_pro, float preco_venda_pro, float preco_venda_pro_cli, int qtde_pro, String data_cad_pro) {
+    public Produto(int id_pro, String descricao_pro, int cod_barra_pro, float preco_custo_pro, int tipo_pro, float preco_venda_pro, float preco_venda_pro_cli, int qtde_pro, String data_cad_pro) {
         this.id_pro = id_pro;
         this.descricao_pro = descricao_pro;
         this.cod_barra_pro = cod_barra_pro;

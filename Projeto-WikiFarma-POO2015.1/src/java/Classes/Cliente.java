@@ -9,9 +9,9 @@ package Classes;
  *
  * @author Marco
  */
-public class ClasseCliente extends ClassePessoa{
+public class Cliente extends Pessoa{
 
-    public ClasseCliente(String nome) {
+    public Cliente(String nome) {
         super(nome);
     }
     
@@ -21,7 +21,7 @@ public class ClasseCliente extends ClassePessoa{
     private int telefone_cli;
     private String data_cad_cli;
 
-    public ClasseCliente(int id_cli, int cpf_cli, String endereco_cli, int telefone_cli, String data_cad_cli, String nome) {
+    public Cliente(int id_cli, int cpf_cli, String endereco_cli, int telefone_cli, String data_cad_cli, String nome) {
         super(nome);
         this.id_cli = id_cli;
         this.cpf_cli = cpf_cli;

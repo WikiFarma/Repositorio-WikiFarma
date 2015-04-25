@@ -10,11 +10,11 @@ package Classes;
  *
  * @author Thayse
  */
-public class ClassePessoa {
+public class Pessoa {
     
     private String nome;
 
-    public ClassePessoa(String nome) {
+    public Pessoa(String nome) {
         this.nome = nome;
     }
 

@@ -5,8 +5,8 @@
  */
 package CRUD;
 
-import Classes.ClasseCliente;
-import Classes.ClasseConexao;
+import Classes.Cliente;
+import Classes.Conexao;
 import java.sql.*;
 import java.util.*;
 
@@ -29,7 +29,7 @@ public class ClienteCRUD
         this.conexao = conexao;
     }    
 
-public String insetir (ClasseCliente cliente)
+public String insetir (Cliente cliente)
     {    
     String comando = "insert into cliente "
             + "(cpf_cli,nome_cli,endereco_cli,telefone_cli,data_cad_cli) values (?,?,?,?,)";
