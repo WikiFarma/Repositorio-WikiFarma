@@ -18,7 +18,7 @@ public class Conexao
     public static void abrirConexao(String[] args) throws SQLException
     {
        try{ 
-       Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb","root","");
+       Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb","root","");
        System.out.println("Conectado");                   
        } catch (SQLException e){
            System.out.println(e.getMessage());
@@ -27,10 +27,10 @@ public class Conexao
        }       
     }
 
-    public static void fecharConexao(Connection conexao) throws SQLException
+    public static void fecharConexao(Connection con) throws SQLException
     {
     try{        
-    conexao.close();
+    con.close();
     System.out.println("Conexão Fechada");       
        } catch (SQLException e){
            System.out.println(e.getMessage());

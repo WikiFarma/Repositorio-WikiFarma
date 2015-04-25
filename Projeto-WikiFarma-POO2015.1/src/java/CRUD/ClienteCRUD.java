@@ -16,17 +16,17 @@ import java.util.*;
  */
 public class ClienteCRUD 
 {    
-    private Connection conexao;
+    private Connection con;
 
-    public ClienteCRUD(Connection conexao) {
-        setConexao(conexao);
+    public ClienteCRUD(Connection con) {
+        setConexao(con);
     }
 
     public Connection getConexao() {
-        return conexao;
+        return con;
     }
-    public void setConexao(Connection conexao) {
-        this.conexao = conexao;
+    public void setConexao(Connection con) {
+        this.con = con;
     }    
 
 public String insetir (Cliente cliente)
