@@ -8,10 +8,15 @@
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
+        <servlet-name>cliente</servlet-name>
+        <servlet-class>Classes.ClienteControl</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+        <servlet-name>cliente</servlet-name>
+        <url-pattern>/cliente.do</url-pattern>
+        
     </servlet-mapping>
     <session-config>
         <session-timeout>

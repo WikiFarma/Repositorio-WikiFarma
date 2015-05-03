@@ -21,8 +21,9 @@
                 }                
             }
             </script>        
-        <h2> <b> Formulario Cadastro de Cliente </b> </h2>        
-        <form name="form_cli" action="ClienteCRUD.java" method="get">          
+        <h2> <b> Formulario Cadastro de Cliente </b> </h2>  
+        <!--mudou o metodo p post,  e a ação  mapeada no web-inf passando o parametro cmd como cadastrar-->        
+        <form name="form_cli" action="cliente.do?cmd=cadastrar" method="post">  
             <table>
                 <tr>
                     <td>CPF:</td>
