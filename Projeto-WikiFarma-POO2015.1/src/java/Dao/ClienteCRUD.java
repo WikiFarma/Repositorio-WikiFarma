@@ -5,7 +5,7 @@
  */
 package Dao;
 
-import Classes.Cliente;
+import Model.Cliente;
 import Dao.Conexao;
 import java.sql.*;
 import java.util.*;
