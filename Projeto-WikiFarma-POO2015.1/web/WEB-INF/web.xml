@@ -9,7 +9,7 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
         <servlet-name>cliente</servlet-name>
-        <servlet-class>Classes.ClienteControl</servlet-class>
+        <servlet-class>Control.ClienteControl</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>

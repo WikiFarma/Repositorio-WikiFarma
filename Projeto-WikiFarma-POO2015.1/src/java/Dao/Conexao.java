@@ -24,13 +24,14 @@ public class Conexao {
 
     public static void abrirConexao() throws SQLException {
         try {
+            System.out.println("Conectado1");
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb", "root", "admin");
             System.out.println("Conectado");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()+"3");
         }
     }
 
