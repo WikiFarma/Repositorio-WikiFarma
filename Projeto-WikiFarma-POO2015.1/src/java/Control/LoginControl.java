@@ -18,7 +18,7 @@ import javax.servlet.http.*;
  *
  * @author Thayse
  */
-public class AutenticacaoDeLogin extends HttpServlet {
+public class LoginControl extends HttpServlet {
 
     private ServletConfig config;
 
@@ -42,7 +42,7 @@ public class AutenticacaoDeLogin extends HttpServlet {
 // Load the database driver
             Class.forName("com.mysql.jdbc.Driver");
 // Get a Connection to the database
-            connection = DriverManager.getConnection(connectionURL, "root", "");
+            connection = DriverManager.getConnection(connectionURL, "root", "admin");
 //Add the data into the database
             String sql = "select nome_usu,senha_usu from usuario";
             Statement s = connection.createStatement();

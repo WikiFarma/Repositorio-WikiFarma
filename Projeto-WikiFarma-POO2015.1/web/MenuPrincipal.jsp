@@ -44,14 +44,14 @@
         <title>JSP Page</title>
     </head>
     <body>        
-        <img src="WF.png"> 
-        <h1> WIKIFARMA </h1> <br>
-        <h2> <b> DIGITE UM DOS MENUS </b> </h2> <br>
-        <ul>
+        <img align="right" src="WF.png"> 
+        <br><h1> WIKIFARMA </h1><br>
+        <h2> <b> DIGITE UMA DAS OPÇOES ABAIXO </b> </h2> <br> <br>
+        <ul>            
+            <li> <a href="#"> VENDA </a> </li>          
+            <li> <a href="Cliente.jsp"> CLIENTE </a> </li>
             <li> <a href="Produto.jsp"> PRODUTO </a> </li>
-            <li><a href="#">link 2</a></li>
-            <li><a href="#">link 3</a></li>
-            <li><a href="#">link 4</a></li>
+            <li> <a href="#"> RELATORIO </a> </li>
             <li><a href="#">link 5</a></li>
         </ul>
     </body>
