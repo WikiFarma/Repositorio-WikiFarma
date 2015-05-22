@@ -41,7 +41,7 @@
                 return false }
             return true }
         </script>        
-        <h2> <b> Formulario Cadastro de Cliente </b> </h2>  
+        <h1> <b> Formulario Cadastro de Cliente </b> </h1>  
         <!--mudou o metodo p post,  e a ação  mapeada no web-inf passando o parametro cmd como cadastrar-->        
         <form name="form_cli" action="cliente.do?cmd=cadastrar" method="post" onSubmit="return ValidarCliente()">  
             <table>

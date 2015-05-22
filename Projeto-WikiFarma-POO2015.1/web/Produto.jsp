@@ -56,7 +56,7 @@
                 return false }
             return true }
         </script>        
-        <h2> <b> Formulario Castrado de Produto </b> </h2>               
+        <h1> <b> Formulario Castrado de Produto </b> </h1>
         <form name="form_pro" action="" method="post" onSubmit="return ValidarProduto()">  
             <table>
                 <tr> <td>Descrição:</td> <td><input type="text" name="textDesc" value="" size="100" /></td> </tr>
