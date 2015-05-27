@@ -8,6 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            .Botoes { font-family:Verdana, Geneva, sans-serif; font-size:12pt; background:#B0C4DE; color:#000; border-radius:5px; border-color: #000}
+            .Botoes1 { font-family:Verdana, Geneva, sans-serif; font-size:22pt; background:#B0C4DE; color:#000}
+            .Botoes2 {font-family:Verdana, Geneva, sans-serif; font-size:12pt; background:#903; color:#FFF; border-radius:5px; border-color: #000}
+        </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> CADASTRAR CLIENTE</title>
     </head>
@@ -51,10 +56,10 @@
                 <tr> <td>Telefone:</td> <td><input type="text" name="textTelefone" value="" size="20" /><br></td> </tr>
                 <tr> <td>Data Cadastro:</td> <td><input type="text" name="textData" value="" size="20" /></td> </tr>                                 
                 <td colspan="2" align="center">
-                <input type="submit" value="SALVAR" name="btEnviar" />
-                <input type="button" value="ATUALIZAR" name="btAtualizar" />
-                <input type="button" value="DELETAR" name="btDeletar" />
-                <input type="reset" value="LIMPAR" name="btLimpar" /></td>           
+                <input type="submit" value="SALVAR" name="btEnviar" class="Botoes2" />
+                <input type="button" value="ATUALIZAR" name="btAtualizar" class="Botoes2" />
+                <input type="button" value="DELETAR" name="btDeletar" class="Botoes2" />
+                <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2"/></td>           
             </table>
     </body>
 </html>

@@ -7,6 +7,7 @@ package Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -26,7 +27,7 @@ public class Conexao {
         try {
             System.out.println("Conectado1");
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb", "root", "admin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb", "root", "");
             System.out.println("Conectado");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -44,6 +45,10 @@ public class Conexao {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    static PreparedStatement prepareStatement(String select__from_usuarios_WHERE_login___AND_p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

@@ -8,12 +8,19 @@ package Control;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.io.*;
-import java.util.*;
-import java.sql.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import Dao.Conexao;
+import Dao.AutenticacaoLogin;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.servlet.ServletConfig;
 /**
  *
  * @author Thayse
@@ -21,6 +28,7 @@ import javax.servlet.http.*;
 public class LoginControl extends HttpServlet {
 
     private ServletConfig config;
+    private Object action;
 
     public void init(ServletConfig config)
             throws ServletException {
@@ -30,7 +38,10 @@ public class LoginControl extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        //String action = request.getParameter("cmd");
+        //String user = request.getParameter("user");
+        //String pass = request.getParameter("pass");
         PrintWriter out = response.getWriter();
         String connectionURL = "jdbc:mysql://localhost:3306/farmaciadb";
         Connection connection = null;
@@ -63,6 +74,6 @@ public class LoginControl extends HttpServlet {
         } else {
             out.println("POR FAVOR ENTRE COM O LOGIN E A SENHA CORRETA");
             out.println("<a href='AutenticacaoLogin.jsp'><br>VOLTAR PARA LOGIN</a>");
-        }
+        }        
     }
 }

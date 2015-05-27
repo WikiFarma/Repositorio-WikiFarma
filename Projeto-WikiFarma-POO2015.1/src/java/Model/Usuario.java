@@ -24,13 +24,13 @@ public class Usuario {
         this.senha_usu = senha_usu;
     }
 
-    public String getId_usu() {
+    /*public String getId_usu() {
         return id_usu;
     }
     public void setId_usu(String id_usu) {
         this.id_usu = id_usu;
     }
-
+*/
     
     public String getLogin_usu() {
         return login_usu;

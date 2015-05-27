@@ -9,6 +9,11 @@ package Model;
  *
  * @author Marco
  */
+
+import Dao.Conexao;
+import Dao.ProdutoCRUD;
+import java.sql.SQLException;
+
 public class Produto {
     
     private int id_pro;
@@ -36,6 +41,12 @@ public class Produto {
         this.data_cad_pro = data_cad_pro;
     }
 
+    //metodo criado para cadastrar o cliente
+    public void cadastrar() throws SQLException {
+        ProdutoCRUD crud = new ProdutoCRUD();
+        crud.inserir(this);
+    }
+    
     public int getId_pro() {
         return id_pro;
     }

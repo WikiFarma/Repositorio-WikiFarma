@@ -8,6 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            .Botoes { font-family:Verdana, Geneva, sans-serif; font-size:12pt; background:#B0C4DE; color:#000; border-radius:5px; border-color: #000}
+            .Botoes1 { font-family:Verdana, Geneva, sans-serif; font-size:22pt; background:#B0C4DE; color:#000}
+            .Botoes2 {font-family:Verdana, Geneva, sans-serif; font-size:12pt; background:#903; color:#FFF; border-radius:5px; border-color: #000}
+        </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> CADASTRAR PRODUTO </title>
     </head>
@@ -55,23 +60,37 @@
                 textData.focus()
                 return false }
             return true }
+        
+        function booleanTipo (){
+            
+            var radioTipo=document.form_pro.radioTipe;
+            if (form_pro.radioTipe==0){
+                form_pro.radioTipe = 1;
+                return false;
+            }
+            if (form_pro.radioTipe==1){
+                form_pro.radioTipe = 1;
+                return false;
+            }
+            return true;
+        }
         </script>        
-        <h1> <b> Formulario Castrado de Produto </b> </h1>
-        <form name="form_pro" action="" method="post" onSubmit="return ValidarProduto()">  
+        <h1> <b> Formulário Cadastro de Produto </b> </h1>
+        <form name="form_pro" action="produto.do?cmd=cadastrar" method="post" onSubmit="return ValidarProduto() return booleanTipe()">  
             <table>
-                <tr> <td>Descrição:</td> <td><input type="text" name="textDesc" value="" size="100" /></td> </tr>
-                <tr> <td>Cód. Barras:</td> <td><input type="text" name="textCod" value="" size="50" /></td> </tr>
-                <tr> <td>Tipo Produto:</td> <td><input type="text" name="textTipo" value="" size="10" /></td> </tr>
+                <tr> <td>Descrição:</td> <td><input type="text" name="textDesc" value="" size="100"/></td> </tr>
+                <tr> <td>Cód. Barras:</td> <td><input type="text" name="textCod" value="" size="50"/></td> </tr>
+                <tr> <td>Tipo Produto:</td> <td><input type="radio" name="radioTipe"/>Remédio<input type="radio" name="radioTipe"/>Outros </td> </tr>
                 <tr> <td>Custo:</td> <td><input type="text" name="textCusto" value="" size="15" /></td></tr>
                 <tr> <td>Preço de Venda: </td> <td><input type="text" name="textPreVenda" value="" size="15" /></td> </tr>
                 <tr> <td>Preço c/ Desconto :</td> <td><input type="text" name="textPreVendaCli" value="" size="15" /></td> </tr>
                 <tr> <td>Quantidade:</td> <td><input type="text" name="textQtde" value="" size="15" /></td> </tr>
-                <tr> <td>Data Cadastro:</td> <td><input type="text" name="textData" value="" size="20" /></td> </tr>
+                <tr> <td>Data Cadastro:</td> <td><input type="text" name="textData" value="" size="15" /></td> </tr>
                 <td colspan="2" align="center">
-                <input type="submit" value="SALVAR" name="btEnviar" />
-                <input type="button" value="ATUALIZAR" name="btAtualizar" />
-                <input type="button" value="DELETAR" name="btDeletar" />
-                <input type="reset" value="LIMPAR" name="btLimpar" /></td>
+                <input type="submit" value="SALVAR" name="btEnviar" class="Botoes2"/>
+                <input type="button" value="ATUALIZAR" name="btAtualizar" class="Botoes2" />
+                <input type="button" value="DELETAR" name="btDeletar" class="Botoes2"/>
+                <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2" /></td>
             </table>
         
     </body>

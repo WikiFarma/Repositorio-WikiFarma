@@ -40,6 +40,8 @@ public class ClienteControl extends HttpServlet {
 
                 PrintWriter out = resp.getWriter();
                 out.println("Cadastrado com sucesso!");
+                
+                
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteControl.class.getName()).log(Level.SEVERE, null, ex);
             }
