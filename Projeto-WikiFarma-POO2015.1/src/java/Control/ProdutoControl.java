@@ -45,7 +45,7 @@ public class ProdutoControl extends HttpServlet{
 
                 PrintWriter out = resp.getWriter();
                 out.println("Cadastrado com sucesso!");
-                
+                 
             } catch (SQLException e) {
                 Logger.getLogger(ProdutoControl.class.getName()).log(Level.SEVERE, null, e);
             }
