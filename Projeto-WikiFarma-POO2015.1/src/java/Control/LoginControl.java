@@ -35,7 +35,8 @@ public class LoginControl extends HttpServlet {
         this.config = config;
 
     }
-
+    
+        public String nome="";
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -46,34 +47,66 @@ public class LoginControl extends HttpServlet {
         String connectionURL = "jdbc:mysql://localhost:3306/farmaciadb";
         Connection connection = null;
         ResultSet rs;
-        String nome = new String("");
-        String senha = new String("");                
+        String user = new String("");
+        String pass = new String("");                
         response.setContentType("text/html");
         try {
 // Load the database driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
 // Get a Connection to the database
-            connection = DriverManager.getConnection(connectionURL, "root", "admin");
+            connection = DriverManager.getConnection(connectionURL, "root", "");
 //Add the data into the database
             String sql = "select nome_usu,senha_usu from usuario";
             Statement s = connection.createStatement();
             s.executeQuery(sql);
             rs = s.getResultSet();
             while (rs.next()) {                                
-                nome = rs.getString("nome_usu");
-                senha = rs.getString("senha_usu");                
+                user = rs.getString("nome_usu");
+                pass = rs.getString("senha_usu");                
             }
             rs.close();
             s.close();
         } catch (Exception e) {
             System.out.println("Exception is ;" + e);
         }
-        if (nome.equals(request.getParameter("user"))
-                && senha.equals(request.getParameter("pass"))) {
+        
+        if (user.equals(request.getParameter("user"))
+                && pass.equals(request.getParameter("pass"))) {
             out.println("WELCOME " + nome);
         } else {
             out.println("POR FAVOR ENTRE COM O LOGIN E A SENHA CORRETA");
             out.println("<a href='AutenticacaoLogin.jsp'><br>VOLTAR PARA LOGIN</a>");
-        }        
+        }
     }
+        public Connection connection (){
+            Connection conn = null;
+            try{
+                String connectionURL = "jdbc:mysql://localhost:3306/farmaciadb";
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                String sql = "select nome_usu,senha_usu from usuario";
+                conn = DriverManager.getConnection(connectionURL, "root", "");
+            }catch (Exception e) {
+                
+            }
+            return conn;
+        }
+        public boolean result = false;
+        public boolean verificarUsuario(String user, String pass){
+            String sql = "";
+            Connection conn = connection();
+            sql += "select nome_usu,senha_usu from usuario";
+            sql += "where nome_usu = " + "'" + user + "'";
+            sql += "and senha_usu = " + "'" + pass + "'";
+            try {
+                Statement st = conn.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                if (rs.next()){
+                    result = true;
+                    nome = rs.getString("user");
+                }
+            }catch (Exception e) {
+                
+            }
+            return result;
+        }
 }

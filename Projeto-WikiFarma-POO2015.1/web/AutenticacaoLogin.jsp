@@ -5,8 +5,10 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%-- <%@page import="login.User"%> --%>
 <html>
     <head>
+        
         <style>
             *{
             font-family:Verdana, Geneva, sans-serif;
@@ -67,17 +69,23 @@
                 user = null;
                 pass = null;
             }
+            function verificarSenha(){
+                if (obj.value.length <= 3){
+                    alert("Senha deve ter mais de 3 caracteres.");
+                    return false;
+                }
+            }
             
         </script>
     </head>
     <body>
-        <form name="frm" action="" method="Post" onSubmit="return ValidarLogin()" >
+        <form name="frm" action="ValidarLogin.jsp" method="Post" onSubmit=" return ValidarLogin()" >
             <table align="center" class="Botoes">
                 <tr> <td class="Botoes1" COLSPAN=4 ><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOGIN</b></td></tr>
                 <tr> <td>USUÁRIO:</td> <td><input type="text" name="user" value=""/></td> </tr>
                 <tr> <td>SENHA:</td> <td><input type="password" name="pass" value=""/></td> </tr>
                 <td colspan="2" align="center">
-                <input type="submit" value="LOGAR" name="btEnviar" class="Botoes2" href="MenuPrincipal.jsp"/>            
+                <input type="submit" value="LOGAR" name="btEnviar" class="Botoes2" href="MenuPrincipal.jsp" onSubmit="return ValidarLogin()"/>            
                 <input type="reset" value="LIMPAR" method="Post" class="Botoes2" onSubmit="return LimparCampo()"/> </td>
             </table>
         </form>
