@@ -27,7 +27,7 @@ public class Conexao {
         try {
             System.out.println("Conectado1");
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/farmaciadb", "root", "admin");
             System.out.println("Conectado");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -51,16 +51,11 @@ public class Conexao {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * @return the con
-     */
+
     public Connection getCon() {
         return con;
     }
 
-    /**
-     * @param con the con to set
-     */
     public void setCon(Connection con) {
         this.con = con;
     }

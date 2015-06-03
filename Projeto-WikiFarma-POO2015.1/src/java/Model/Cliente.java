@@ -5,9 +5,9 @@
  */
 package Model;
 
-import Dao.Conexao;
 import Dao.ClienteCRUD;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  *
@@ -15,6 +15,10 @@ import java.sql.SQLException;
  */
 public class Cliente extends Pessoa {
 
+    public Cliente(){
+        
+    }
+    
     public Cliente(String nome) {
         super(nome);
     }
@@ -23,9 +27,9 @@ public class Cliente extends Pessoa {
     private int cpf_cli;
     private String endereco_cli;
     private int telefone_cli;
-    private String data_cad_cli;
+    private Date data_cad_cli;
 
-    public Cliente(int id_cli, int cpf_cli, String endereco_cli, int telefone_cli, String data_cad_cli, String nome) {
+    public Cliente(int id_cli, int cpf_cli, String endereco_cli, int telefone_cli, Date data_cad_cli, String nome) {
         super(nome);
         this.id_cli = id_cli;
         this.cpf_cli = cpf_cli;
@@ -40,7 +44,7 @@ public class Cliente extends Pessoa {
         ClienteCRUD crud = new ClienteCRUD();
         crud.insetir(this);
     }
-
+    
     public int getId_cli() {
         return id_cli;
     }
@@ -73,11 +77,11 @@ public class Cliente extends Pessoa {
         this.telefone_cli = telefone_cli;
     }
 
-    public String getData_cad_cli() {
+    public Date getData_cad_cli() {
         return data_cad_cli;
     }
 
-    public void setData_cad_cli(String data_cad_cli) {
+    public void setData_cad_cli(Date data_cad_cli) {
         this.data_cad_cli = data_cad_cli;
     }
 }

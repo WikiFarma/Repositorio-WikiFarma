@@ -31,7 +31,8 @@ public class ProdutoControl extends HttpServlet{
 
         if (action.equalsIgnoreCase("cadastrar")) {
             try {
-                Produto proCadastrar = new Produto(req.getParameter("textDescricao"));   
+                Produto proCadastrar = new Produto();
+                proCadastrar.setDescricao_pro(req.getParameter("textDescricao"));
                 proCadastrar.setId_pro(Integer.parseInt(req.getParameter("textID")));
                 proCadastrar.setDescricao_pro(req.getParameter("textDescricao"));
                 proCadastrar.setCod_barra_pro(Integer.parseInt(req.getParameter("textCodBarra")));
