@@ -7,7 +7,11 @@ package Dao;
 
 import Model.Cliente;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,7 +45,7 @@ public class ClienteCRUD extends Conexao {
             } else {
                 fecharConexao();
                 return "Inserido com Sucesso";
-                
+
             }
 
         } catch (SQLException e) {
@@ -63,7 +67,7 @@ public class ClienteCRUD extends Conexao {
             if (prep.execute()) {
                 fecharConexao();
                 return "Erro ao Deletar";
-                
+
             } else {
                 fecharConexao();
                 return "Excluido com Sucesso";
@@ -78,23 +82,23 @@ public class ClienteCRUD extends Conexao {
     public String update(Cliente cliente) throws SQLException {
         abrirConexao();
 
-        String comando = "UPDATE cliente SET cpf_cli = ?, nome_cli = ?, endereco_cli = ?, telefone_cli = ? WHERE id_cli = ?";
+        String comando = "UPDATE cliente SET nome_cli = ?, endereco_cli = ?, telefone_cli = ? WHERE cpf_cli = ?";
 
         try {
             PreparedStatement prep = getCon().prepareStatement(comando);
 
-            prep.setInt(1, cliente.getCpf_cli());
-            prep.setString(2, cliente.getNome());
-            prep.setString(3, cliente.getEndereco_cli());
-            prep.setInt(4, cliente.getTelefone_cli());
-            prep.setInt(5, cliente.getId_cli());
+            prep.setString(1, cliente.getNome());
+            prep.setString(2, cliente.getEndereco_cli());
+            prep.setInt(3, cliente.getTelefone_cli());
+            prep.setInt(4, cliente.getCpf_cli());
 
             if (prep.execute()) {
                 fecharConexao();
-                return "Inserido com Sucesso";
+                return "Erro ao insetir";
+
             } else {
                 fecharConexao();
-                return "Erro ao insetir";
+                return "Inserido com Sucesso";
             }
 
         } catch (SQLException e) {
@@ -104,17 +108,20 @@ public class ClienteCRUD extends Conexao {
         }
     }
 
-    public Cliente read() throws SQLException {
+    public Cliente read(int cpf_cli) throws SQLException {
 
         abrirConexao();
 
         String comando = "SELECT * FROM cliente WHERE cpf_cli = ?";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
         ResultSet rs;
 
         try {
             PreparedStatement prep = getCon().prepareStatement(comando);
+            prep.setInt(1, cpf_cli);
 
-            rs = prep.executeQuery(comando);
+            rs = prep.executeQuery();
             Cliente temp = new Cliente();
             while (rs.next()) {
 
@@ -123,42 +130,57 @@ public class ClienteCRUD extends Conexao {
                 temp.setNome(rs.getString("nome_cli"));
                 temp.setEndereco_cli(rs.getString("endereco_cli"));
                 temp.setTelefone_cli(rs.getInt("telefone_cli"));
-                //temp.setData_cad_cli(rs.getString("data_cad_cli"));
+                temp.setData_cad_cli(formatter.parse(rs.getString("data_cad_cli")));
+      
             }
+            fecharConexao();
             return temp;
         } catch (SQLException e) {
             fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, e);
             return null;
-
+        } catch (ParseException ex) {
+            fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
 
     }
 
     public List<Cliente> listaCliente() throws SQLException {
         abrirConexao();
+
         List<Cliente> listaTemp = new ArrayList<Cliente>();
-        String comando = "SELECT * FROM cliente WHERE cpf_cli = ?";
+        String comando = "SELECT * FROM cliente";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
         ResultSet rs;
         try {
             PreparedStatement prep = getCon().prepareStatement(comando);
 
-            rs = prep.executeQuery(comando);
+            rs = prep.executeQuery();
 
             while (rs.next()) {
                 Cliente temp = new Cliente();
+                
                 // pega todos os atributos da pessoa  
                 temp.setCpf_cli(rs.getInt("cpf_cli"));
                 temp.setNome(rs.getString("nome_cli"));
                 temp.setEndereco_cli(rs.getString("endereco_cli"));
                 temp.setTelefone_cli(rs.getInt("telefone_cli"));
-                //temp.setData_cad_cli(rs.getString("data_cad_cli"));
+                temp.setData_cad_cli(formatter.parse(rs.getString("data_cad_cli")));
+                
                 listaTemp.add(temp);
             }
+            fecharConexao();
             return listaTemp;
-        }  catch (SQLException e) {
+        } catch (SQLException e) {
             fecharConexao();
             return null;
-
+        } catch (ParseException ex) {
+            fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
 
     }
