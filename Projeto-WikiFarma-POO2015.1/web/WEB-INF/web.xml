@@ -12,6 +12,10 @@
         <servlet-name>usuario</servlet-name>
         <servlet-class>Control.UsuarioControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>venda</servlet-name>
+        <servlet-class>Control.VendaControl</servlet-class>
+    </servlet>
     <servlet-mapping>  
         <servlet-name>cliente</servlet-name>
         <url-pattern>/cliente.do</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping> 
         <servlet-name>usuario</servlet-name>
         <url-pattern>/usuario.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping> 
+        <servlet-name>venda</servlet-name>
+        <url-pattern>/venda.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>/AutenticacaoLogin.jsp</welcome-file>

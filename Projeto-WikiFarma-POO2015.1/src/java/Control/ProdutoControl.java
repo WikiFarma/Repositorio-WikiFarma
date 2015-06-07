@@ -11,9 +11,7 @@ package Control;
  * classe criada para fazer o controle do crud do cliente
  */
 
-import Dao.ClienteCRUD;
 import Dao.ProdutoCRUD;
-import Model.Cliente;
 import Model.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;

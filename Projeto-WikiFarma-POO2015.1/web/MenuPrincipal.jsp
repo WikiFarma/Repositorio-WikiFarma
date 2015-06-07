@@ -52,7 +52,7 @@
         <h2 align="center"> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ESCOLHA UMA DAS OPÇOES ABAIXO </b> </h2> <br> <br>
         <div class="menu" align="center">
         <ul>            
-            <li> <a href="#" > VENDA </a> </li>          
+            <li> <a href="venda.do?cmd=realizar" > VENDA </a> </li>          
             <li> <a href="Cliente.jsp"> CLIENTE </a> </li>
             <li> <a href="Produto.jsp"> PRODUTO </a> </li>
             <li> <a href="#"> RELATORIO </a> </li>

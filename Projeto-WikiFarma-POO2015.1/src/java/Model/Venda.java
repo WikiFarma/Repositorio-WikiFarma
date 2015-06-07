@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *
  * @author Marco
@@ -19,12 +21,12 @@ public class Venda {
     private float preco_venda_pro_ven;
     private int qtde_ven;
     private float total_ven;
-    private String data_ven;
+    private Date data_ven;
 
     public Venda() {
     }    
 
-    public Venda(int id_ven, int tipo_ven, int id_cli_ven, int id_pro_ven, int qtde_pro_ven, float preco_venda_pro_ven, int qtde_ven, float total_ven, String data_ven) {
+    public Venda(int id_ven, int tipo_ven, int id_cli_ven, int id_pro_ven, int qtde_pro_ven, float preco_venda_pro_ven, int qtde_ven, float total_ven, Date data_ven) {
         this.id_ven = id_ven;
         this.tipo_ven = tipo_ven;
         this.id_cli_ven = id_cli_ven;
@@ -100,10 +102,10 @@ public class Venda {
     }
 
     
-    public String getData_ven() {
+    public Date getData_ven() {
         return data_ven;
     }
-    public void setData_ven(String data_ven) {
+    public void setData_ven(Date data_ven) {
         this.data_ven = data_ven;
     } 
 }
