@@ -1,7 +1,7 @@
 <%-- 
     Document   : ProdutoLista
     Created on : 06/06/2015, 21:09:21
-    Author     : Matheus
+    Author     : Andrea
 --%>
 
 <%@page import="java.util.Iterator"%>

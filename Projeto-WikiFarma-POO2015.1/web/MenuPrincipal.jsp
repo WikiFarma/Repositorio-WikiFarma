@@ -56,7 +56,7 @@
             <li> <a href="Cliente.jsp"> CLIENTE </a> </li>
             <li> <a href="Produto.jsp"> PRODUTO </a> </li>
             <li> <a href="#"> RELATORIO </a> </li>
-            <li> <a href="#">link 5</a></li>
+            <li> <a href="Usuario.jsp">Usuario</a></li>
             <li> <a href="SobreWikifarma.jsp">Sobre WikiFarma</a></li>
         </ul>
         </div>

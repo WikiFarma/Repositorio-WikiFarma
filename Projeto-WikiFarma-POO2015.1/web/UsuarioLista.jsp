@@ -1,11 +1,12 @@
 <%-- 
-    Document   : ClienteBuscar
-    Created on : 06/06/2015, 13:23:22
+    Document   : UsuarioLista
+    Created on : 06/06/2015, 23:10:38
     Author     : Andrea
 --%>
 
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="Model.Cliente"%>
+<%@page import="Model.Usuario"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,45 +48,36 @@
             .tabela {border: 1px solid black;border-collapse: collapse;}
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Busca do Cliente</title>
+        <title>Lista Usuario</title>
     </head>
     <body>
-        <h1>Busca do Cliente</h1>
+        <h1>Lista de Usuario</h1>
         <table class="tabela">
             <tr>
-                <td class="tabela">CPF</td>
-                <td class="tabela">Nome</td>
-                <td class="tabela">Endereço</td>
-                <td class="tabela">Telefone</td>
-                <td class="tabela">Data de Cadastro</td> 
+                <td class="tabela">Login</td>
+                <td class="tabela">Senha</td> 
             </tr>
             <%
-                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                Cliente c = (Cliente) request.getAttribute("clientes");
-                out.print("<tr>"
-                        + "<td class='tabela'>"
-                        + c.getCpf_cli()
-                        + "</td>"
-                        + "<td class='tabela'>"
-                        + c.getNome()
-                        + "</td>"
-                        + "<td class='tabela'>"
-                        + c.getEndereco_cli()
-                        + "</td>"
-                        + "<td class='tabela'>"
-                        + c.getTelefone_cli()
-                        + "</td>"
-                        + "<td class='tabela'>"
-                        + formatter.format(c.getData_cad_cli())
-                        + "</td class='tabela'>"
-                        + "</tr>");
 
+                List usuarios = (List) request.getAttribute("usuarios");
+                Iterator it = usuarios.iterator();
+                while (it.hasNext()) {
+                    Usuario u = (Usuario) it.next();
+                    out.print("<tr>"
+                            + "<td class='tabela'>"
+                            + u.getLogin_usu()
+                            + "</td>"
+                            + "<td class='tabela'>"
+                            + u.getSenha_usu()
+                            + "</td>"
+                            + "</tr>");
+                }
             %>
         </table>
         <br>
         <br>
         <ul>            
-            <li> <a href="Cliente.jsp"> CLIENTE </a> </li>
+            <li> <a href="Usuario.jsp"> Usuario </a> </li>
         </ul>
     </body>
 </html>

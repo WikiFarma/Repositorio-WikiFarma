@@ -1,7 +1,7 @@
 <%-- 
     Document   : ClienteLista
     Created on : 06/06/2015, 11:36:22
-    Author     : Matheus
+    Author     : Andrea
 --%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="Model.Cliente"%>

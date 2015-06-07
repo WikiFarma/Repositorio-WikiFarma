@@ -1,7 +1,7 @@
 <%-- 
     Document   : ProdutoBuscar
     Created on : 06/06/2015, 21:09:47
-    Author     : Matheus
+    Author     : Andrea
 --%>
 
 <%@page import="Model.Produto"%>

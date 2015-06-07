@@ -8,6 +8,10 @@
         <servlet-name>produto</servlet-name>
         <servlet-class>Control.ProdutoControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>usuario</servlet-name>
+        <servlet-class>Control.UsuarioControl</servlet-class>
+    </servlet>
     <servlet-mapping>  
         <servlet-name>cliente</servlet-name>
         <url-pattern>/cliente.do</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping> 
         <servlet-name>produto</servlet-name>
         <url-pattern>/produto.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping> 
+        <servlet-name>usuario</servlet-name>
+        <url-pattern>/usuario.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>/AutenticacaoLogin.jsp</welcome-file>

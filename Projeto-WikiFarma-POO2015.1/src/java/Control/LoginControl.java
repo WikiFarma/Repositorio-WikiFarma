@@ -7,17 +7,12 @@ package Control;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Dao.Conexao;
-import Dao.AutenticacaoLogin;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.servlet.ServletConfig;
@@ -30,8 +25,7 @@ public class LoginControl extends HttpServlet {
     private ServletConfig config;
     private Object action;
 
-    public void init(ServletConfig config)
-            throws ServletException {
+    public void init(ServletConfig config)throws ServletException {
         this.config = config;
 
     }
