@@ -94,11 +94,11 @@ public class ClienteCRUD extends Conexao {
 
             if (prep.execute()) {
                 fecharConexao();
-                return "Erro ao insetir";
+                return "Erro ao atualizar";
 
             } else {
                 fecharConexao();
-                return "Inserido com Sucesso";
+                return "Atualizado com Sucesso";
             }
 
         } catch (SQLException e) {

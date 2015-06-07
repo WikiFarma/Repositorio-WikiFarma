@@ -5,14 +5,13 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *
  * @author Marco
  */
 
-import Dao.Conexao;
-import Dao.ProdutoCRUD;
-import java.sql.SQLException;
 
 public class Produto {
     
@@ -24,12 +23,12 @@ public class Produto {
     private float preco_venda_pro;
     private float preco_venda_pro_cli;
     private int qtde_pro;
-    private String data_cad_pro;
+    private Date data_cad_pro;
 
     public Produto() {
     }    
     
-    public Produto(int id_pro, String descricao_pro, int cod_barra_pro, float preco_custo_pro, int tipo_pro, float preco_venda_pro, float preco_venda_pro_cli, int qtde_pro, String data_cad_pro) {
+    public Produto(int id_pro, String descricao_pro, int cod_barra_pro, float preco_custo_pro, int tipo_pro, float preco_venda_pro, float preco_venda_pro_cli, int qtde_pro, Date data_cad_pro) {
         this.id_pro = id_pro;
         this.descricao_pro = descricao_pro;
         this.cod_barra_pro = cod_barra_pro;
@@ -39,12 +38,6 @@ public class Produto {
         this.preco_venda_pro_cli = preco_venda_pro_cli;
         this.qtde_pro = qtde_pro;
         this.data_cad_pro = data_cad_pro;
-    }
-
-    //metodo criado para cadastrar o cliente
-    public void cadastrar() throws SQLException {
-        ProdutoCRUD crud = new ProdutoCRUD();
-        crud.inserir(this);
     }
     
     public int getId_pro() {
@@ -111,10 +104,12 @@ public class Produto {
     }
 
     
-    public String getData_cad_pro() {
+    public Date getData_cad_pro() {
         return data_cad_pro;
     }
-    public void setData_cad_pro(String data_cad_pro) {
+    public void setData_cad_pro(Date data_cad_pro) {
         this.data_cad_pro = data_cad_pro;
-    }           
+    }        
+    
+    
 }
