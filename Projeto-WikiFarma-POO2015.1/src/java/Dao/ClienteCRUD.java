@@ -126,6 +126,7 @@ public class ClienteCRUD extends Conexao {
             while (rs.next()) {
 
                 // pega todos os atributos da pessoa  
+                temp.setId_cli(rs.getInt("id_cli"));
                 temp.setCpf_cli(rs.getInt("cpf_cli"));
                 temp.setNome(rs.getString("nome_cli"));
                 temp.setEndereco_cli(rs.getString("endereco_cli"));
@@ -147,6 +148,47 @@ public class ClienteCRUD extends Conexao {
 
     }
 
+    public Cliente readID(int id_cli) throws SQLException {
+
+        abrirConexao();
+
+        String comando = "SELECT * FROM cliente WHERE id_cli = ?";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        ResultSet rs;
+
+        try {
+            PreparedStatement prep = getCon().prepareStatement(comando);
+            prep.setInt(1, id_cli);
+
+            rs = prep.executeQuery();
+            Cliente temp = new Cliente();
+            while (rs.next()) {
+
+                // pega todos os atributos da pessoa
+                temp.setId_cli(rs.getInt("id_cli"));
+                temp.setCpf_cli(rs.getInt("cpf_cli"));
+                temp.setNome(rs.getString("nome_cli"));
+                temp.setEndereco_cli(rs.getString("endereco_cli"));
+                temp.setTelefone_cli(rs.getInt("telefone_cli"));
+                temp.setData_cad_cli(formatter.parse(rs.getString("data_cad_cli")));
+      
+            }
+            fecharConexao();
+            return temp;
+        } catch (SQLException e) {
+            fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        } catch (ParseException ex) {
+            fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
+    
+    
     public List<Cliente> listaCliente() throws SQLException {
         abrirConexao();
 
@@ -163,7 +205,8 @@ public class ClienteCRUD extends Conexao {
             while (rs.next()) {
                 Cliente temp = new Cliente();
                 
-                // pega todos os atributos da pessoa  
+                // pega todos os atributos da pessoa
+                temp.setId_cli(rs.getInt("id_cli"));
                 temp.setCpf_cli(rs.getInt("cpf_cli"));
                 temp.setNome(rs.getString("nome_cli"));
                 temp.setEndereco_cli(rs.getString("endereco_cli"));

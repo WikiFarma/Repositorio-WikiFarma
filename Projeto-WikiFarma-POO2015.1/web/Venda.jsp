@@ -34,6 +34,7 @@
                     </td>
                 </tr>
                 <tr> <td><select name="textIdCliente">
+                            <option value="">Não possui cadastro</option>
                             <%
                                 List<Cliente> clientes = (List) request.getAttribute("clientes");
                                 Iterator itc = clientes.iterator();
@@ -53,7 +54,7 @@
                                 }
                             %>
                         </select></td> </tr>
-                <tr> <td>QUANTIDA PRODUTO VENDIDO</td> <td><input type="number" name="textQuanTProVen" value="" size="20" /><br></td> </tr>
+                <tr> <td>QUANTIDA PRODUTO VENDIDO</td> <td><input type="number" min="0" name="textQuanTProVen" size="20" /><br></td> </tr>
                 <tr> <td>DATA</td> <td><input type="date" name="textData" value="" size="20" /></td> </tr>                                 
                 <td colspan="2" align="center">
                     <input type="submit" value="SALVAR" name="btEnviar" class="Botoes2" formaction="venda.do?cmd=cadastrar" />
@@ -62,14 +63,15 @@
         </form>
         <br>
         <br>
-        <h1>Busca de Clientes</h1>
+        <h1>Relatorios Vendas</h1>
         <form name="form_venda_busca" method="post">
             <table>
-                <tr> <td>CPF:</td> <td><input type="text" name="textCpfBusca" value="" size="50" /></td> </tr>
                 <tr>
                     <td align="center">
-                        <input type="submit" value="BUSCAR" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
-                        <input type="submit" value="Listar" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=listar" />
+                        <input type="submit" value="Produto + Vendido" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
+                        <input type="submit" value="10 Melhores Clientes" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
+                        <input type="submit" value="Relatorio Geral" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
+                        <input type="submit" value="Listar" name="btBuscar" class="Botoes2" formaction="venda.do?cmd=listar" />
                     </td>
                 </tr>
             </table>                

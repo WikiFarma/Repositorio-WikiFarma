@@ -154,6 +154,49 @@ public class ProdutoCRUD extends Conexao {
 
     }
 
+    public Produto readID(int id_pro) throws SQLException {
+
+        abrirConexao();
+
+        String comando = "SELECT * FROM produto WHERE id_pro = ?";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        ResultSet rs;
+
+        try {
+            PreparedStatement prep = getCon().prepareStatement(comando);
+            prep.setInt(1, id_pro);
+
+            rs = prep.executeQuery();
+            Produto temp = new Produto();
+            while (rs.next()) {
+
+                // pega todos os atributos da pessoa  
+                temp.setCod_barra_pro(rs.getInt("cod_bar_pro"));
+                temp.setId_pro(rs.getInt("id_pro"));
+                temp.setDescricao_pro(rs.getString("desc_pro"));
+                temp.setTipo_pro(rs.getInt("tipo_pro"));
+                temp.setPreco_custo_pro(rs.getFloat("custo_pro"));
+                temp.setPreco_venda_pro(rs.getFloat("preco_venda_pro"));
+                temp.setPreco_venda_pro_cli(rs.getFloat("preco_venda_cli_pro"));
+                temp.setQtde_pro(rs.getInt("qtde_pro"));
+                temp.setData_cad_pro(formatter.parse(rs.getString("data_reg_pro")));
+      
+            }
+            fecharConexao();
+            return temp;
+        } catch (SQLException e) {
+            fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        } catch (ParseException ex) {
+            fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
+    
     public List<Produto> listaProduto() throws SQLException {
         abrirConexao();
 

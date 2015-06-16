@@ -7,7 +7,6 @@ package Dao;
 
 import static Dao.Conexao.abrirConexao;
 import static Dao.Conexao.fecharConexao;
-import Model.Cliente;
 import Model.Venda;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +22,8 @@ import java.util.logging.Logger;
  *
  * @author Andrea
  */
-public class VendaCRUD extends Conexao{
+public class VendaCRUD extends Conexao {
+
     public String insetir(Venda venda) throws SQLException {
 
         abrirConexao();
@@ -41,18 +41,13 @@ public class VendaCRUD extends Conexao{
             prep.setFloat(5, venda.getPreco_venda_pro_ven());
             prep.setInt(6, venda.getQtde_ven());
             prep.setFloat(7, venda.getTotal_ven());
-                      
+
             java.sql.Date sqlDate = new java.sql.Date(venda.getData_ven().getTime());
             prep.setDate(8, sqlDate);
+            prep.executeUpdate();
 
-            if (prep.execute()) {
-                fecharConexao();
-                return "Erro ao insetir";
-            } else {
-                fecharConexao();
-                return "Inserido com Sucesso";
-
-            }
+            fecharConexao();
+            return "Inserido com Sucesso";
 
         } catch (SQLException e) {
             fecharConexao();
@@ -61,7 +56,7 @@ public class VendaCRUD extends Conexao{
         }
     }
 
-    public Venda read(int id_cli_ven,int id_pro_ven) throws SQLException {
+    public Venda read(int id_cli_ven, int id_pro_ven) throws SQLException {
 
         abrirConexao();
 
@@ -88,7 +83,7 @@ public class VendaCRUD extends Conexao{
                 temp.setQtde_ven(rs.getInt("qtde_ven"));
                 temp.setTotal_ven(rs.getFloat("total_ven"));
                 temp.setData_ven(formatter.parse(rs.getString("data_ven")));
-      
+
             }
             fecharConexao();
             return temp;
@@ -104,7 +99,7 @@ public class VendaCRUD extends Conexao{
 
     }
 
-    public List<Venda> listaCliente() throws SQLException {
+    public List<Venda> listaVenda() throws SQLException {
         abrirConexao();
 
         List<Venda> listaTemp = new ArrayList<Venda>();
@@ -119,7 +114,7 @@ public class VendaCRUD extends Conexao{
 
             while (rs.next()) {
                 Venda temp = new Venda();
-                
+
                 // pega todos os atributos da pessoa  
                 temp.setTipo_ven(rs.getInt("tipo_ven"));
                 temp.setId_cli_ven(rs.getInt("id_cli_ven"));
@@ -129,7 +124,7 @@ public class VendaCRUD extends Conexao{
                 temp.setQtde_ven(rs.getInt("qtde_ven"));
                 temp.setTotal_ven(rs.getFloat("total_ven"));
                 temp.setData_ven(formatter.parse(rs.getString("data_ven")));
-                
+
                 listaTemp.add(temp);
             }
             fecharConexao();
@@ -144,6 +139,46 @@ public class VendaCRUD extends Conexao{
         }
 
     }
-    
-    
+
+    public List<Venda> listaVendaCliente() throws SQLException {
+        abrirConexao();
+
+        List<Venda> listaTemp = new ArrayList<Venda>();
+        String comando = "SELECT * FROM venda WHERE id_cli_ven = ?";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+        ResultSet rs;
+        try {
+            PreparedStatement prep = getCon().prepareStatement(comando);
+
+            rs = prep.executeQuery();
+
+            while (rs.next()) {
+                Venda temp = new Venda();
+
+                // pega todos os atributos da pessoa  
+                temp.setTipo_ven(rs.getInt("tipo_ven"));
+                temp.setId_cli_ven(rs.getInt("id_cli_ven"));
+                temp.setId_pro_ven(rs.getInt("id_pro_ven"));
+                temp.setQtde_pro_ven(rs.getInt("qtde_pro_ven"));
+                temp.setPreco_venda_pro_ven(rs.getFloat("preco_venda_pro_ven"));
+                temp.setQtde_ven(rs.getInt("qtde_ven"));
+                temp.setTotal_ven(rs.getFloat("total_ven"));
+                temp.setData_ven(formatter.parse(rs.getString("data_ven")));
+
+                listaTemp.add(temp);
+            }
+            fecharConexao();
+            return listaTemp;
+        } catch (SQLException e) {
+            fecharConexao();
+            return null;
+        } catch (ParseException ex) {
+            fecharConexao();
+            Logger.getLogger(ClienteCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+    }
+
 }
