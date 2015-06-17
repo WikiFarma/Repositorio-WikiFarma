@@ -69,17 +69,15 @@
             </tr>
             <%
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                List clientes = (List) request.getAttribute("clientes");
-                List produtos = (List) request.getAttribute("produtos");
+                List<Cliente> clientes = (List<Cliente>) request.getAttribute("clientes");
+                Produto[] produtos = (Produto[]) request.getAttribute("produtos");
+                int[] id_cli = (int[]) request.getAttribute("id_cli");
                 float[] precoTotal = (float[]) request.getAttribute("precosFinais");
                 float[] valorUtimoProdu = (float[]) request.getAttribute("valorUtimoProdu");
                 Date[] datafinal = (Date[]) request.getAttribute("datasFinais");
-                Iterator it = clientes.iterator();
-                Iterator itp = produtos.iterator();
+                //Iterator itp = produtos.iterator();
                 int i = 0;
-                while (it.hasNext()) {
-                    
-                    Cliente c = (Cliente) it.next();
+                for(Cliente c : clientes) {
                     out.print("<tr>"
                             + "<td class='tabela'>"
                             + c.getCpf_cli()
@@ -100,7 +98,7 @@
                             + precoTotal[i]
                             + "</td>"
                             + "<td class='tabela'>"
-                            + "teste"
+                            + produtos[i].getDescricao_pro()
                             + "</td>"
                             + "<td class='tabela'>"
                             + valorUtimoProdu[i]

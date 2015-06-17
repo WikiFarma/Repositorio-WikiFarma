@@ -35,11 +35,15 @@ public class VendaControl extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("cmd");
         PrintWriter out = resp.getWriter();
-
+        //verifica se houve uma solicitação get com o parametro do 
+        //cmd = realizar se sim ele faz o redirecionamento da pagina
+        //isso se faz necessario para enviar dados dos produtos cadastrados e dos clientes cadastrados
         if (action.equalsIgnoreCase("realizar")) {
             ClienteCRUD cRUD = new ClienteCRUD();
             ProdutoCRUD cRUD2 = new ProdutoCRUD();
             try {
+                //recupera os clientes e produtos cadastrados no banco
+                //e os envia para serem exibidos na tela de cadastrod de venda
                 List<Cliente> temp = cRUD.listaCliente();
                 req.setAttribute("clientes", temp);
                 List<Produto> temp2 = cRUD2.listaProduto();
@@ -58,17 +62,23 @@ public class VendaControl extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("cmd");
         PrintWriter out = resp.getWriter();
-
+        //verifica se houve uma solicitação post com o parametro do 
+        //cmd = cadastrar se sim ele faz o redirecionamento da pagina
+        //enviando o resultado do cadastro
         if (action.equalsIgnoreCase("cadastrar")) {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
             try {
                 Venda vendaCadastrar = new Venda();
                 ProdutoCRUD pcrud = new ProdutoCRUD();
-
+                //Busca o produto atravez do id para otenção de outros dados como preço de venda e outros
                 Produto produto = pcrud.readID(Integer.parseInt(req.getParameter("textIdProd")));
-
+                //pega os dados enviados pelo cliente para serem cadastrados na venda.
                 vendaCadastrar.setTipo_ven(Integer.parseInt(req.getParameter("textTipo")));
+                //verifica se a venda esta sendo feita para um cliente
+                //ja cadastrado ou se é para outro usuario sem cadastro no sistema
+                //caso o cliente ja esteja cadastrado o sistema realiza a venda com
+                //o desconto cadastrado para o cliente na tabela de produto.
                 if (!req.getParameter("textIdCliente").isEmpty()) {
                     vendaCadastrar.setId_cli_ven(Integer.parseInt(req.getParameter("textIdCliente")));
                     vendaCadastrar.setPreco_venda_pro_ven(produto.getPreco_venda_pro_cli());
@@ -96,9 +106,10 @@ public class VendaControl extends HttpServlet {
             }
 
         }
-        else if(action.equalsIgnoreCase("buscar")){
-            
-        }else if(action.equalsIgnoreCase("listar")){
+        //verifica se houve uma solicitação post com o parametro do 
+        //cmd = listar se sim ele faz o redirecionamento da pagina
+        //enviando o resultado das vendas cadastradas.
+        else if(action.equalsIgnoreCase("listar")){
              try {
                 VendaCRUD vRUD = new VendaCRUD();
                 List<Venda> temp = vRUD.listaVenda();

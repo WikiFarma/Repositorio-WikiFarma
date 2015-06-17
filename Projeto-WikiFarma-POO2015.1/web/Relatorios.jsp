@@ -53,8 +53,6 @@
         <div class="menu" align="center">
             <ul>            
                 <li> <a href="relatorio.do?cmd=cliente" > RELATORIO DE CLIENTES </a> </li>          
-                <li> <a href="#"> RELATORIO DE PRODUTOS </a> </li>
-                <li> <a href="#"> RELATORIO DE VENDAS </a> </li>
                 <li> <a href="MenuPrincipal.jsp"> VOLTAR MENU-PRINCIPAL </a> </li>
             </ul>
         </div>
