@@ -55,9 +55,9 @@
             <li> <a href="venda.do?cmd=realizar" > VENDA </a> </li>          
             <li> <a href="Cliente.jsp"> CLIENTE </a> </li>
             <li> <a href="Produto.jsp"> PRODUTO </a> </li>
-            <li> <a href="#"> RELATORIO </a> </li>
-            <li> <a href="Usuario.jsp">Usuario</a></li>
-            <li> <a href="SobreWikifarma.jsp">Sobre WikiFarma</a></li>
+            <li> <a href="Relatorios.jsp"> RELATORIO </a> </li>
+            <li> <a href="Usuario.jsp">USUARIO</a></li>
+            <li> <a href="SobreWikifarma.jsp">SOBRE WIKIFARM</a></li>
         </ul>
         </div>
     </body>

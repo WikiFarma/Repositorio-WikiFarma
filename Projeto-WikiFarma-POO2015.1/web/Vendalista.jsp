@@ -106,7 +106,7 @@
         <br>
         <br>
         <ul>            
-            <li> <a href="venda.do?cmd=realizar"> Venda </a> </li>
+            <li> <a href="venda.do?cmd=realizar"> VOLTAR P/ VENDA </a> </li>
         </ul>
     </body>
 </html>

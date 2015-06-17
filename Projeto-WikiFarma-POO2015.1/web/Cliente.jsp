@@ -69,7 +69,8 @@
                         <input type="submit" value="SALVAR" name="btEnviar" class="Botoes2" formaction="cliente.do?cmd=cadastrar" />
                         <input type="submit" value="ATUALIZAR" name="btAtualizar" class="Botoes2" formaction="cliente.do?cmd=updata"/>
                         <input type="submit" value="DELETAR" name="btDeletar" class="Botoes2" formaction="cliente.do?cmd=deletar"/>
-                        <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2"/></td>           
+                        <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2"/>
+                    </td>           
                 </table>
             </form>
             <br>
@@ -82,6 +83,7 @@
                         <td align="center">
                             <input type="submit" value="BUSCAR" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
                             <input type="submit" value="Listar" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=listar" />
+                            <input type="submit" value="VOLTAR MENU-PRINCIPAL" name="btBuscar" class="Botoes2" formaction="MenuPrincipal.jsp" />
                         </td>
                     </tr>
                 </table>                

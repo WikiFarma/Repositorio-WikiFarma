@@ -58,23 +58,11 @@
                 <tr> <td>DATA</td> <td><input type="date" name="textData" value="" size="20" /></td> </tr>                                 
                 <td colspan="2" align="center">
                     <input type="submit" value="SALVAR" name="btEnviar" class="Botoes2" formaction="venda.do?cmd=cadastrar" />
-                    <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2"/></td>           
+                    <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2"/>
+                    <input type="submit" value="LISTAR" name="btBuscar" class="Botoes2" formaction="venda.do?cmd=listar" />
+                    <input type="submit" value="VOLTAR MENU-PRINCIPAL" name="btBuscar" class="Botoes2" formaction="MenuPrincipal.jsp" />
+                </td>           
             </table>
-        </form>
-        <br>
-        <br>
-        <h1>Relatorios Vendas</h1>
-        <form name="form_venda_busca" method="post">
-            <table>
-                <tr>
-                    <td align="center">
-                        <input type="submit" value="Produto + Vendido" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
-                        <input type="submit" value="10 Melhores Clientes" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
-                        <input type="submit" value="Relatorio Geral" name="btBuscar" class="Botoes2" formaction="cliente.do?cmd=find" />
-                        <input type="submit" value="Listar" name="btBuscar" class="Botoes2" formaction="venda.do?cmd=listar" />
-                    </td>
-                </tr>
-            </table>                
         </form>
     </body>
 </html>

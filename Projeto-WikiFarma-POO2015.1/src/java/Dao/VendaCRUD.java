@@ -109,7 +109,7 @@ public class VendaCRUD extends Conexao {
         ResultSet rs;
         try {
             PreparedStatement prep = getCon().prepareStatement(comando);
-
+            
             rs = prep.executeQuery();
 
             while (rs.next()) {
@@ -140,7 +140,7 @@ public class VendaCRUD extends Conexao {
 
     }
 
-    public List<Venda> listaVendaCliente() throws SQLException {
+    public List<Venda> listaVendaCliente(int id_cli) throws SQLException {
         abrirConexao();
 
         List<Venda> listaTemp = new ArrayList<Venda>();
@@ -150,7 +150,8 @@ public class VendaCRUD extends Conexao {
         ResultSet rs;
         try {
             PreparedStatement prep = getCon().prepareStatement(comando);
-
+            prep.setInt(1, id_cli);
+            
             rs = prep.executeQuery();
 
             while (rs.next()) {

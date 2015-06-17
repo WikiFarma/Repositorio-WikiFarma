@@ -99,7 +99,9 @@
                     <input type="submit" value="SALVAR" name="btEnviar" class="Botoes2" formaction="produto.do?cmd=cadastrar"/>
                     <input type="submit" value="ATUALIZAR" name="btAtualizar" class="Botoes2" formaction="produto.do?cmd=updata"/>
                     <input type="submit" value="DELETAR" name="btDeletar" class="Botoes2" formaction="produto.do?cmd=deletar"/>
-                    <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2" /></td>
+                    <input type="reset" value="LIMPAR" name="btLimpar" class="Botoes2" />
+                    <input type="submit" value="VOLTAR MENU-PRINCIPAL" name="btBuscar" class="Botoes2" formaction="MenuPrincipal.jsp" />
+                </td>
             </table>
         </form>
         <h1>Busca de Produto</h1>
